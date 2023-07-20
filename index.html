@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getObject(obj) {
+            const marksMap = {};
+            for (const key in obj) {
+                const entry = obj[key];
+                const { marks } = entry;
+                if (!(marks in marksMap) || entry.age < marksMap[marks].age) {
+                    marksMap[marks] = entry;
+                }
+            }
+            const result = {};
+            let counter = 0;
+            for (const key in marksMap) {
+              result[counter.toString()] = marksMap[key];
+              counter++;
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>
